@@ -1,6 +1,8 @@
 .header {
-	-fx-background-color: #00a032;
-	-fx-font-size: 30px;
+	-fx-background-color: #666666;
+	-fx-alignment: LEFT;
+	
+	-fx-font-size: 20px;
 	-fx-font-family: "Verdana";
 }
 
@@ -11,6 +13,7 @@
 }
 
 .tab {
+	-fx-alignment: LEFT;
 	-fx-background-color: #666666;
 	-fx-font-size: 20px;
 	-fx-font-family: "Verdana";

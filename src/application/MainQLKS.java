@@ -1,17 +1,18 @@
 package application;
 	
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import sun.net.www.ApplicationLaunchException;
-import javafx.scene.Parent;
+import service.ConnectionService;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+
+import java.sql.Connection;
+
+import javafx.application.Application;
 
 /*
  * 1.Build path for project: 	add all jar files in javafx/lib to Modules path
  * 2.Set run configuration for main method: Arguments -> VM Arguments:	   --module-path "\\paste path to folder where save jar files" --add-modules javafx.controls,javafx.fxml
- * --module-path "D:\20201\Project I\mylib\javafx\lib" --add-modules javafx.controls,javafx.fxml
+ * --module-path "D:\20201\Project1\20201-qlkhachsan\libs\javafx\lib" --add-modules javafx.controls,javafx.fxml
  * 
  * 3.In each fxml file, add:
  *   + fx:controller="application.Controller"  for Container
@@ -24,8 +25,9 @@ public class MainQLKS extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			ConnectionService.conn = ConnectionService.getConnection(); 
 			// Đọc file fxml và vẽ giao diện.
-	        Scene loginScene = new Scene(FXMLLoader.load(getClass() .getResource("/application/LoginScene.fxml")));
+	        Scene loginScene = new Scene(FXMLLoader.load(getClass() .getResource("/view/TEST.fxml")));
 			//loginScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			primaryStage.setTitle("Quản lý khách sạn");

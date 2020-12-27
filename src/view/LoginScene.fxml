@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="683.0" style="-fx-background-color: linear-gradient(to top, #48D1CC, #4169E1)" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField layoutX="309.0" layoutY="77.0" prefHeight="31.0" prefWidth="245.0" promptText="Tên đăng nhập:" />
-      <TextField layoutX="309.0" layoutY="121.0" prefHeight="31.0" prefWidth="245.0" promptText="Mật khẩu:" />
-      <Button fx:id="btnLogin" onAction="#onLogin" layoutX="309.0" layoutY="171.0" mnemonicParsing="false" text="Đăng nhập" />
-      <Text layoutX="350.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ĐĂNG NHẬP HỆ THỐNG" />
-      <Text layoutX="445.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quên mật khẩu?" />
-      <Text layoutX="402.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng kí tài khoản mới?" />
+      <JFXButton fx:id="loginBtn" layoutX="292.0" layoutY="199.0" onAction="#onLogin" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #DAA520; -fx-border-radius: 15pt; -fx-background-radius: 15pt" text="Đăng nhập" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="113.0" layoutY="33.0" text="SmartH - QUẢN LÝ KHÁCH SẠN THÔNG MINH" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="forgotPassLabel" layoutX="297.0" layoutY="236.0" onMouseClicked="#onForgotPass" text="Quên mật khẩu?" textFill="#9e1482" />
+      <TextField layoutX="256.0" layoutY="94.0" prefHeight="26.0" prefWidth="170.0" promptText="Tên đăng nhập">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <PasswordField layoutX="256.0" layoutY="142.0" prefHeight="30.0" prefWidth="170.0" promptText="Mật khẩu">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="256.0" layoutY="124.0" prefHeight="18.0" prefWidth="170.0" text="Sai tên đăng nhập!" textFill="#d71a1a" />
+      <Label layoutX="256.0" layoutY="173.0" prefHeight="18.0" prefWidth="170.0" text="Sai mật khẩu!" textFill="#d71a1a" />
+      <Label layoutX="40.0" layoutY="312.0" text="Khách sạn Phượng Hoàng 1" textFill="#008000">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="336.0" text="Số 1 Xuân Thủy, Cầu Giấy, Hà Nội" textFill="#008000">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <FontAwesomeIcon fill="#00037d" glyphName="BUILDING" layoutX="15.0" layoutY="329.0" selectionFill="#aa0000" size="1.5em" text="" />
    </children>
-</Pane>
+</AnchorPane>
