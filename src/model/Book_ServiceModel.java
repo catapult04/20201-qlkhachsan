@@ -1,11 +1,11 @@
 package model;
 
-public class BillServiceModel {
+public class Book_ServiceModel {
 	private String bookId;
 	private String serviceId;
 	private int serviceQuantity;
 	
-	public BillServiceModel(String bookId, String serviceId, int serviceQuantity) {
+	public Book_ServiceModel(String bookId, String serviceId, int serviceQuantity) {
 		super();
 		this.bookId = bookId;
 		this.serviceId = serviceId;

@@ -7,9 +7,9 @@ import javafx.scene.paint.Color;
 import model.RoomModel;
 
 public class RoomComponent  extends JFXButton{
+	public static String DA_DON = "#228B22";
 	public static String DANG_O = "#2C85C1";
 	public static String CHUA_DON = "#808000";
-	public static String DA_DON = "#228B22";
 	public static String CHO_DEN = "#FF8C00";
 	public static String KO_DEN = "#FF4500";
 	public static String DANG_SUA = "#800080";
@@ -20,8 +20,8 @@ public class RoomComponent  extends JFXButton{
 	Date from;
 	Date to;
 	
-	public RoomComponent(String name, String typeRoom, String status) {
-		roomModel = new RoomModel(name, typeRoom, status);
+	public RoomComponent(RoomModel model) {
+		roomModel = model;
 		this.setStyle("-fx-background-color: " + DANG_SUA);
 		this.setText(roomModel.getName() + " - " + roomModel.getTypeRoom()  + "\n");
 		this.setTextFill(Color.WHITE);

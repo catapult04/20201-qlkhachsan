@@ -1,5 +1,7 @@
 package application;
 
+import java.sql.SQLException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -33,6 +35,14 @@ public class MainQLKS extends Application {
 			stage.setTitle("Quản lý khách sạn");
 			stage.setScene(loginScene);
 			stage.show();
+			stage.setOnCloseRequest(event -> {
+				try {
+					System.out.println("Ket thuc chuong trinh");
+					ConnectionService.conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			});
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
