@@ -2,26 +2,21 @@ package controller;
 
 import javafx.scene.Scene;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.*;
-import javafx.event.ActionEvent;
+
+import application.MainQLKS;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import service.ConnectionService;
+import service.UserModelService;
 
-public class LoginController implements Initializable {
-	   @FXML private Button closeBtn;
+public class LoginController implements Initializable { 
 	   @FXML private TextField userTextField;
 	   @FXML private PasswordField passTextField;
 	   @FXML private JFXButton loginBtn;
@@ -30,46 +25,48 @@ public class LoginController implements Initializable {
 	   @FXML private Label errorLabel2;
 	   
 	   @Override
-	   public void initialize(URL location, ResourceBundle resources) {	      
+	   public void initialize(URL location, ResourceBundle resources) {
 	   }
 	   
-	   public void onClose(ActionEvent event) {
-		   System.exit(0);
-	   }
-	   
-	   public void onLogin(ActionEvent event) {
+	   public void onLoginBtn() {
 		   errorLabel1.setText(null);
 		   errorLabel2.setText(null);
-		   try {
-			    String SQL = "SELECT maTT,password FROM user_minhhn WHERE username=" + "'" + userTextField.getText() + "'";
-			    ResultSet rs = ConnectionService.conn.createStatement().executeQuery(SQL);
-			    try {
-			    	rs.next();
-			    	if(rs.getString(2).equals(passTextField.getText())) {				        
-				        //crete info of thuthu
-				        MainQLTV.maTT = rs.getString(1);
-				        MainQLTV.username = userTextField.getText();
-				        String SQL2 = "SELECT Ten_20183955 FROM thuthu_minhhn WHERE MaTT_20183955=" + "'" + MainQLTV.maTT + "'";
-					    ResultSet rs2 = ConnectionService.conn.createStatement().executeQuery(SQL2);
-					    rs2.next();
-					    MainQLTV.tenTT = rs2.getString(1);
-					    
-					  //create UI
-			    		Scene mainScene = new Scene(FXMLLoader.load(getClass().getResource("/view/MainScene.fxml")));
-				        Stage stage = (Stage) forgotPassLabel.getScene().getWindow();
-				        stage.setScene(mainScene);
-				        stage.centerOnScreen();
-			    	} else {
-			    		errorLabel2.setText("Sai mật khẩu!");
-			    	}
-			    	ConnectionService.conn.close();
-			    } catch(Exception e) {
-			    	e.printStackTrace();
-			    	errorLabel1.setText("Sai tên đăng nhập!");
-			    }		        
-		    }catch (Exception io){
-		        io.printStackTrace();
-		    }
+		   UserModelService userSer = new UserModelService();
+		   String name = userTextField.getText();
+		   String pass = passTextField.getText();
+		   String rs = userSer.checkPassword(name, pass);
+		   switch(rs) {
+		   	case "password": {
+		   		errorLabel2.setText("Sai mật khẩu"); break;
+		   	}
+		   	case "username": {
+		   		errorLabel1.setText("Sai tên đăng nhập"); break;
+		   	}
+		   	default: {
+		   		MainQLKS.username = name;
+		   		switch(rs) {
+		   			case "Quản lý":{
+		   				MainQLKS.viewPkgName = "view_ql";break;
+		   			}
+		   			case "Lễ tân": {
+		   				MainQLKS.viewPkgName = "view_lt";break;
+		   			}
+		   			case "Thu ngân": {
+		   				MainQLKS.viewPkgName = "view_tn";break;
+		   			} 
+		   			case "Kế toán": {
+		   				MainQLKS.viewPkgName = "view_kt";break;
+		   			}
+		   		}
+		   		try {
+		   			Scene scene = new Scene(FXMLLoader.load(getClass() .getResource("/" + MainQLKS.viewPkgName + "/RoomManage.fxml")));
+			   		MainQLKS.stage.setScene(scene);
+			   		MainQLKS.stage.centerOnScreen();
+		   		} catch(Exception e) {
+		   			e.printStackTrace();
+		   		}
+		   	}
+		   }
 	   }
 	   
 	   public void onForgotPass() {

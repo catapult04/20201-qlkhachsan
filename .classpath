@@ -6,11 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/20201/Project1/20201-qlkhachsan/libs/poi-4.1.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="D:/20201/Project1/20201-qlkhachsan/libs/javafx/lib/javafx.base.jar">
 		<attributes>
 			<attribute name="module" value="true"/>

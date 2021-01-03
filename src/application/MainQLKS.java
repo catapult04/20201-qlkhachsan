@@ -1,13 +1,10 @@
 package application;
-	
+
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import service.ConnectionService;
 import javafx.scene.Scene;
-
-import java.sql.Connection;
-
-import javafx.application.Application;
 
 /*
  * 1.Build path for project: 	add all jar files in javafx/lib to Modules path
@@ -22,23 +19,26 @@ import javafx.application.Application;
  */
 
 public class MainQLKS extends Application {
+	public static Stage stage;
+	public static String username;
+	public static String viewPkgName;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			ConnectionService.conn = ConnectionService.getConnection(); 
 			// Đọc file fxml và vẽ giao diện.
-	        Scene loginScene = new Scene(FXMLLoader.load(getClass() .getResource("/view/TEST.fxml")));
-			//loginScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
-			primaryStage.setTitle("Quản lý khách sạn");
-			primaryStage.setScene(loginScene);
-			primaryStage.show();
+	        Scene loginScene = new Scene(FXMLLoader.load(getClass() .getResource("/view/LoginScene.fxml")));
+			stage = new Stage();
+			stage.setTitle("Quản lý khách sạn");
+			stage.setScene(loginScene);
+			stage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		launch(args); 
 	}
 }

@@ -1,23 +1,23 @@
 package model;
 
 public class TyperoomFacilityModel {
-	private String name;
-	private String id;
+	private String typeroomId;
+	private String facId;
 	private int quantity;
 	
 	public TyperoomFacilityModel(String name, String id, int quantity) {
 		super();
-		this.name = name;
-		this.id = id;
+		this.typeroomId = name;
+		this.facId = id;
 		this.quantity = quantity;
 	}
 
 	public String getName() {
-		return name;
+		return typeroomId;
 	}
 
 	public String getId() {
-		return id;
+		return facId;
 	}
 
 	public int getQuantity() {
@@ -25,11 +25,11 @@ public class TyperoomFacilityModel {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.typeroomId = name;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.facId = id;
 	}
 
 	public void setQuantity(int quantity) {

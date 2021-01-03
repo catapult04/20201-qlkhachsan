@@ -1,7 +1,7 @@
 package model;
 
 public class TyperoomPriceModel {
-	private String typeId;
+	private String typeroomId;
 	private String monthInYear;
 	private int hourWeekdayPrice;
 	private int hourWeekendPrice;
@@ -12,7 +12,7 @@ public class TyperoomPriceModel {
 	public TyperoomPriceModel(String typeId, String monthInYear, int hourWeekdayPrice, int hourWeekendPrice,
 			int dayWeekdayPrice, int dayWeekendPrice, int monthPrice) {
 		super();
-		this.typeId = typeId;
+		this.typeroomId = typeId;
 		this.monthInYear = monthInYear;
 		this.hourWeekdayPrice = hourWeekdayPrice;
 		this.hourWeekendPrice = hourWeekendPrice;
@@ -22,7 +22,7 @@ public class TyperoomPriceModel {
 	}
 
 	public String getTypeId() {
-		return typeId;
+		return typeroomId;
 	}
 
 	public String getMonthInYear() {
@@ -50,7 +50,7 @@ public class TyperoomPriceModel {
 	}
 
 	public void setTypeId(String typeId) {
-		this.typeId = typeId;
+		this.typeroomId = typeId;
 	}
 
 	public void setMonthInYear(String monthInYear) {

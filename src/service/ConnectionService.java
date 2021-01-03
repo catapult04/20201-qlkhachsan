@@ -1,10 +1,6 @@
 package service;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 public class ConnectionService {
 	private static String dbURL = "jdbc:mysql://localhost:3306/qlkhachsandb";

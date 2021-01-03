@@ -5,7 +5,7 @@ import java.util.Date;
 public class CustomerModel {
 	private String cmnd;
 	private String name;
-	private Date date;
+	private Date birth;
 	private String phone;
 	private String address;
 	private String nationality;
@@ -14,7 +14,7 @@ public class CustomerModel {
 		super();
 		this.cmnd = cmnd;
 		this.name = name;
-		this.date = date;
+		this.birth = date;
 		this.phone = phone;
 		this.address = address;
 		this.nationality = nationality;
@@ -29,7 +29,7 @@ public class CustomerModel {
 	}
 
 	public Date getDate() {
-		return date;
+		return birth;
 	}
 
 	public String getPhone() {
@@ -53,7 +53,7 @@ public class CustomerModel {
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.birth = date;
 	}
 
 	public void setPhone(String phone) {

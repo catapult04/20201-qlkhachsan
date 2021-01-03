@@ -10,7 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="683.0" style="-fx-background-color: linear-gradient(to top, #48D1CC, #4169E1)" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <JFXButton fx:id="loginBtn" layoutX="292.0" layoutY="199.0" onAction="#onLogin" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #DAA520; -fx-border-radius: 15pt; -fx-background-radius: 15pt" text="Đăng nhập" textFill="WHITE">
+      <PasswordField fx:id="passTextField" layoutX="256.0" layoutY="142.0" onAction="#onLoginBtn" prefHeight="18.0" prefWidth="170.0" promptText="Mật khẩu">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </PasswordField>
+      <JFXButton fx:id="loginBtn" layoutX="292.0" layoutY="199.0" onAction="#onLoginBtn" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #DAA520; -fx-border-radius: 15pt; -fx-background-radius: 15pt" text="Đăng nhập" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -21,18 +26,8 @@
          </font>
       </Label>
       <Label fx:id="forgotPassLabel" layoutX="297.0" layoutY="236.0" onMouseClicked="#onForgotPass" text="Quên mật khẩu?" textFill="#9e1482" />
-      <TextField layoutX="256.0" layoutY="94.0" prefHeight="26.0" prefWidth="170.0" promptText="Tên đăng nhập">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </TextField>
-      <PasswordField layoutX="256.0" layoutY="142.0" prefHeight="30.0" prefWidth="170.0" promptText="Mật khẩu">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </PasswordField>
-      <Label layoutX="256.0" layoutY="124.0" prefHeight="18.0" prefWidth="170.0" text="Sai tên đăng nhập!" textFill="#d71a1a" />
-      <Label layoutX="256.0" layoutY="173.0" prefHeight="18.0" prefWidth="170.0" text="Sai mật khẩu!" textFill="#d71a1a" />
+      <Label fx:id="errorLabel1" focusTraversable="false" layoutX="256.0" layoutY="124.0" prefHeight="18.0" prefWidth="170.0" textFill="#d71a1a" />
+      <Label fx:id="errorLabel2" focusTraversable="false" layoutX="256.0" layoutY="173.0" prefHeight="18.0" prefWidth="170.0" textFill="#d71a1a" />
       <Label layoutX="40.0" layoutY="312.0" text="Khách sạn Phượng Hoàng 1" textFill="#008000">
          <font>
             <Font size="15.0" />
@@ -43,6 +38,24 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <FontAwesomeIcon fill="#00037d" glyphName="BUILDING" layoutX="15.0" layoutY="329.0" selectionFill="#aa0000" size="1.5em" text="" />
+      <FontAwesomeIcon fill="INDIGO" glyphName="BUILDING" layoutX="15.0" layoutY="329.0" selectionFill="#aa0000" size="1.5em" text="" />
+      <FontAwesomeIcon fill="INDIGO" glyphName="MAP_MARKER" layoutX="17.0" layoutY="353.0" size="1.5em" />
+      <FontAwesomeIcon fill="INDIGO" glyphName="GLOBE" layoutX="461.0" layoutY="329.0" size="1.5em" />
+      <Label layoutX="485.0" layoutY="336.0" text="6677 1508" textFill="#008000">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="485.0" layoutY="312.0" text="www.ksphuonghoang1.com" textFill="#008000">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <FontAwesomeIcon fill="INDIGO" glyphName="PHONE" layoutX="462.0" layoutY="354.0" size="1.5em" text="" />
+      <TextField fx:id="userTextField" layoutX="256.0" layoutY="94.0" onAction="#onLoginBtn" prefHeight="30.0" prefWidth="170.0" promptText="Tên đăng nhập">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
