@@ -1,17 +1,57 @@
 package controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
+
 import component.RoomComponent;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.RoomModel;
 import service.RoomModelService;
 
-public class RoomManageController extends Controller {	
+public class RoomManageController extends Controller {
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		buildScrollPane();
+		buildToggleGroup();
+	}
+	
+	@FXML private RadioButton radio1;
+	@FXML private RadioButton radio2;
+	@FXML private RadioButton radio3;
+	@FXML private RadioButton radio4;
+	@FXML private RadioButton radio5;
+	@FXML private RadioButton radio6;
+	@FXML private RadioButton radio7;
+	private ToggleGroup statusGroup = new ToggleGroup();
+	public void buildToggleGroup() {
+		radio1.setToggleGroup(statusGroup);
+		radio2.setToggleGroup(statusGroup);
+		radio3.setToggleGroup(statusGroup);
+		radio4.setToggleGroup(statusGroup);
+		radio5.setToggleGroup(statusGroup);
+		radio6.setToggleGroup(statusGroup);
+		radio7.setToggleGroup(statusGroup);
+		statusGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() { 
+			@Override
+            public void changed(ObservableValue<? extends Toggle> ob, Toggle o1, Toggle o2) 
+            { 
+//                onSearchBtn();
+            }
+        });
+	}
+	
 	@FXML private ScrollPane scrollPane;
 	public void buildScrollPane() {
 		RoomModelService roomModelService = new RoomModelService();
@@ -37,8 +77,4 @@ public class RoomManageController extends Controller {
 	}
 	
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		buildScrollPane();
-	}
 }

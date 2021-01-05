@@ -1,6 +1,10 @@
+/application/
 /component/
 /controller/
 /model/
 /service/
+/util/
+/view_kt/
+/view_lt/
 /view_ql/
-/application/
+/view_tn/

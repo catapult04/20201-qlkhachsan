@@ -22,7 +22,7 @@ public class RoomComponent  extends JFXButton{
 	
 	public RoomComponent(RoomModel model) {
 		roomModel = model;
-		this.setStyle("-fx-background-color: " + DANG_SUA);
+		this.setStyle("-fx-background-color: " + DA_DON);
 		this.setText(roomModel.getName() + " - " + roomModel.getTypeRoom()  + "\n");
 		this.setTextFill(Color.WHITE);
 		this.setPrefHeight(70);
