@@ -4,7 +4,6 @@
 /model/
 /service/
 /util/
-/view_kt/
-/view_lt/
 /view_ql/
-/view_tn/
+/view/
+/smallcontroller/

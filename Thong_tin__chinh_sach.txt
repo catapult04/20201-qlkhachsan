@@ -1,0 +1,13 @@
+(có button sửa cho admin)
+
+THONG TIN
+- ms thue
+- thong tin lien he (mail, web, dt) , dia chi
+- Ngay thanh lap
+- Chu so huu
+- Giay phep kinh doanh, cac giay to lien quan, giay to chứng thực ...
+
+CHINH SACH 
+- Khach doan: giam 8% gia moi phong (tru cac phong loai Supervip) voi khach doan >=10 nguoi
+- tre em <= 5 tuoi, nguoi gia >=80 tuoi: 
+- khách đặt mà không đến: cho khách khác thuê và không trả lại tiền cọc, vì gây ảnh hưởng đến hoạt động kinh doanh của khách sạn

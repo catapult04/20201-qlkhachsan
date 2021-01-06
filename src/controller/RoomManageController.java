@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.RoomModel;
 import service.RoomModelService;
+import util.MyUtil;
 
 public class RoomManageController extends Controller {
 	@Override
@@ -26,6 +27,7 @@ public class RoomManageController extends Controller {
 		buildScrollPane();
 		buildToggleGroup();
 	}
+	
 	
 	@FXML private RadioButton radio1;
 	@FXML private RadioButton radio2;
@@ -51,6 +53,14 @@ public class RoomManageController extends Controller {
             }
         });
 	}
+	
+	
+	@FXML private JFXButton createRoomBtn;
+	public void onCreateRoomBtn() {
+		MyUtil util = new MyUtil();
+		util.popUp("FormThemPhong");
+	}
+	
 	
 	@FXML private ScrollPane scrollPane;
 	public void buildScrollPane() {
