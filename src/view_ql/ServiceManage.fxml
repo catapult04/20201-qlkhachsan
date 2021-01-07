@@ -26,27 +26,12 @@
                   <Insets />
                </opaqueInsets>
             </JFXButton>
-            <JFXButton fx:id="tab8" layoutX="-1.0" layoutY="349.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Loại phòng và báo giá" textFill="WHITE">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="tab9" layoutX="-1.0" layoutY="393.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="choosingtab" text="Dịch vụ cung cấp" textFill="WHITE">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </JFXButton>
             <JFXButton fx:id="tab6" layoutX="-1.0" layoutY="240.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Thống kê" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="tab7" layoutX="-1.0" layoutY="284.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Báo cáo" textFill="WHITE">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="tab11" layoutX="-1.0" layoutY="481.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Thông tin - Chính sách" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
@@ -71,7 +56,27 @@
                   <Font size="10.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="tab10" layoutX="-1.0" layoutY="437.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Quản lý nhân viên" textFill="WHITE">
+            <JFXButton fx:id="tab8" layoutX="-1.0" layoutY="349.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Loại phòng và báo giá" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="tab10" layoutX="-1.0" layoutY="437.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="choosingtab" text="Dịch vụ cung cấp" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="tab12" layoutX="-1.0" layoutY="525.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Thông tin - Chính sách" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="tab11" layoutX="-1.0" layoutY="481.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Quản lý nhân viên" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="tab9" layoutX="-1.0" layoutY="393.0" minHeight="42.0" minWidth="220.0" onAction="#onTab" prefHeight="42.0" prefWidth="301.0" styleClass="tab" text="Cơ sở vật chất" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>

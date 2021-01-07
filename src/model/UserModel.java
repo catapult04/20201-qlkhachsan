@@ -2,7 +2,6 @@ package model;
 
 import java.sql.Date;
 import java.util.Optional;
-
 import controller.UserManageController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -13,23 +12,23 @@ import util.MyUtil;
 public class UserModel  extends Model{
 	public static String QUAN_LY="Quản lý", KE_TOAN="Kế toán", LE_TAN="Lễ tân", THU_NGAN="Thu ngân";
 	
-	private String username;
-	private String password;
+	private String username; 
+	private String password; 
 	private String name;
-	private String phone;
-	private String sex;
-	private Date birth;
-	private String address;
-	private String type;
+	private String sex;   	 
+	private Date birth;		 
+	private String phone;	 
+	private String address;	 
+	private String type;	 
 	
-	public UserModel(String username, String password, String sex, String name, String phone, Date birth, String address,
-			String type) {
+	public UserModel(String username, String password, String name, String sex, Date birth, String phone, String address, String type) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.name = name;
-		this.phone = phone;
+		this.sex = sex;
 		this.birth = birth;
+		this.phone = phone;
 		this.address = address;
 		this.type = type;
 		oldId = username;
@@ -64,13 +63,12 @@ public class UserModel  extends Model{
 	public void setField(int pos, String value) {
 		switch(pos) {
 			case 0: setUsername(value); break;
-			case 1: setPassword(value); break;
-			case 2: setName(value); break;
-			case 3: setPhone(value); break;
-			case 4: setSex(value); break;
-			case 5: setBirth(Date.valueOf(value)); break;
-			case 6: setAddress(value); break;
-			case 7: setType(value); break;
+			case 1: setName(value); break;
+			case 2: setSex(value); break;
+			case 3: setBirth(Date.valueOf(value)); break;
+			case 4: setPhone(value); break;
+			case 5: setAddress(value); break;
+			case 6: setType(value); break;
 		}
 	}
 

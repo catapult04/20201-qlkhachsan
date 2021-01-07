@@ -1,13 +1,23 @@
 package service;
-
+import javafx.collections.FXCollections;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.RoomModel;
 
 public class RoomModelService {
+	public int countId(String id) {
+		try {
+			String sql = "select count(name) from room where typeroom-id='" + id + "'";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			return rs.getInt(1);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
 	public boolean addNew(RoomModel model) {
 		try {
 	        String query = "INSERT INTO room"

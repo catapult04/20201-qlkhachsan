@@ -1,6 +1,15 @@
 package model;
 
-public class FacilityModel {
+import java.util.Optional;
+
+import controller.FacilityManageController;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+import service.FacilityModelService;
+import util.MyUtil;
+
+public class FacilityModel extends Model {
 	private String id;
 	private String name;
 	private String unit;
@@ -14,6 +23,48 @@ public class FacilityModel {
 		this.unit = unit;
 		this.price = price;
 		this.description = description;
+		oldId = id;
+		
+		FacilityModelService service = new FacilityModelService();
+		
+		this.getSaveBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Lưu các thay đổi?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	if(service.update(this, this.oldId)==true) {
+	        		this.oldId = this.getId();
+	        		MyUtil.success("Cập nhật thành công");
+	        	} else {
+	        		MyUtil.fail("Có lỗi xảy ra");
+	        	}		
+	        } 
+		});
+		
+		this.getDelBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Xóa khách hàng?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	String ID = this.getId();
+	        	FacilityManageController.data.remove(this);
+	        	service.delete(id);
+	        	MyUtil.success("Xóa thành công");
+	        } 
+		});
+	}
+	public void setField(int pos, String value) {
+		try {
+			switch(pos) {
+				case 0: setId(value); break;
+				case 1: setName(value); break;
+				case 2: setUnit(value); break;
+				case 3: setPrice(Integer.parseInt(value)); break;
+				case 4: setDescription(value); break;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public String getId() {

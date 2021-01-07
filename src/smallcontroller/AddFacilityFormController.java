@@ -5,15 +5,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
-import controller.ServiceManageController;
+import controller.FacilityManageController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import model.FacilityModel;
 import model.ServiceModel;
+import service.FacilityModelService;
 import service.ServiceModelService;
 import util.MyUtil;
 
-public class AddServiceFormController implements Initializable{
+public class AddFacilityFormController implements Initializable{
 	@FXML private TextField in1;
 	@FXML private TextField in2;
 	@FXML private TextField in3;
@@ -29,11 +31,11 @@ public class AddServiceFormController implements Initializable{
 	}
 	
 	public void onAdd() {
-		ServiceModel model = new ServiceModel(in1.getText(), in2.getText(), in3.getText(), Integer.parseInt(in4.getText()), in5.getText());
-		ServiceModelService service = new ServiceModelService();
+		FacilityModel model = new FacilityModel(in1.getText(), in2.getText(), in3.getText(), Integer.parseInt(in4.getText()), in5.getText());
+		FacilityModelService service = new FacilityModelService();
 		if(service.addNew(model)==true) {
-			ServiceManageController.data.add(model);
-			MyUtil.success("Thêm dịch vụ thành công");
+			FacilityManageController.data.add(model);
+			MyUtil.success("Thêm CSVC thành công");
 			in1.clear();
 			in2.clear();
 			in3.clear();

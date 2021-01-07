@@ -12,3 +12,4 @@ CHINH SACH
 - Khach doan: giam 8% gia moi phong (tru cac phong loai Supervip) voi khach doan >=10 nguoi
 - tre em <= 5 tuoi, nguoi gia >=80 tuoi: 
 - khách đặt mà không đến: cho khách khác thuê và không trả lại tiền cọc, vì gây ảnh hưởng đến hoạt động kinh doanh của khách sạn
+- Đầu tuần là t2 đến t6, cuối tuần là t7 cn

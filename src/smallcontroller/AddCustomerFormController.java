@@ -6,6 +6,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+
+import controller.CustomerManageController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,6 +46,7 @@ public class AddCustomerFormController implements Initializable{
 		CustomerModelService service = new CustomerModelService();
 		if(service.addNew(model)==true) {
 			MyUtil.success("Thêm khách hàng thành công");
+			CustomerManageController.data.add(model);
 			in1.clear();
 			in2.clear();
 			in5.clear();

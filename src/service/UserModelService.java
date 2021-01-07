@@ -10,29 +10,30 @@ import javafx.collections.ObservableList;
 import model.UserModel;
 
 public class UserModelService {
-	public ObservableList<UserModel> search(String username, String name, String phone, String sex, Date start, Date end, String address, String type) {
+	public ObservableList<UserModel> search(String username, String name, String sex, Date start, Date end, String phone, String address, String type) {
 		ObservableList<UserModel> list = FXCollections.observableArrayList();
 		try {
-	        String query = "select * from user where username like ? and name like ? and phone like ? and sex like ? and birth>=start and birth<=end and address like ? and type like? ";
+	        String query = "select * from user where username like ? and name like ? and sex like ? and birth>=? and birth<=? and phone like ? and address like ? and type like? ";
 	        PreparedStatement preparedStatement = ConnectionService.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 	        
 	        preparedStatement.setString(1, "%" + username + "%");
 	        preparedStatement.setString(2, "%" + name + "%");
-	        preparedStatement.setString(3, "%" + phone + "%");
 	        if(sex.equals("Tất cả")) {
-	        	preparedStatement.setString(4, "%");
+	        	preparedStatement.setString(3, "%");
 	        } else {
-	        	preparedStatement.setString(4, "%" + sex + "%");
-    }
-	        preparedStatement.setDate(5, start);
-	        preparedStatement.setDate(6, end);
+	        	preparedStatement.setString(3, "%" + sex + "%");
+	        }
+	        preparedStatement.setDate(4, start);
+	        preparedStatement.setDate(5, end);
+	        preparedStatement.setString(6, "%" + phone + "%");
 	        preparedStatement.setString(7, "%" + address + "%");
 	        preparedStatement.setString(8, "%" + type + "%");
 	        
 	        ResultSet rs = preparedStatement.executeQuery();
 	        UserModel model;
 	        while(rs.next()) {
-	        	model = new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8));
+	        	model = new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), 
+	        			rs.getString(6), rs.getString(7), rs.getString(8));
 	        	list.add(model);		
 	        }
 	        
@@ -46,14 +47,14 @@ public class UserModelService {
 	
 	public boolean update(UserModel model, String oldId) {
 		try {
-	        String query = "update User set username=?, name=?, phoen=?, sex=?, birth=?, address=?, type=? where username=?";
+	        String query = "update user set username=?, name=?, sex=?, birth=?, phone=?, address=?, type=? where username=?";
 	        PreparedStatement preparedStatement = ConnectionService.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 	        
 	        preparedStatement.setString(1, model.getUsername());
 	        preparedStatement.setString(2, model.getName());
-	        preparedStatement.setString(3, model.getPhone());
-	        preparedStatement.setString(4, model.getSex());
-	        preparedStatement.setDate(5,model.getBirth());
+	        preparedStatement.setString(3, model.getSex());
+	        preparedStatement.setDate(4,model.getBirth());
+	        preparedStatement.setString(5, model.getPhone());
 	        preparedStatement.setString(6, model.getAddress());
 	        preparedStatement.setString(7, model.getType());
 	        preparedStatement.setString(8, oldId);
@@ -87,9 +88,9 @@ public class UserModelService {
 	        preparedStatement.setString(1, model.getUsername());
 	        preparedStatement.setString(2, model.getPassword());
 	        preparedStatement.setString(3, model.getName());
-	        preparedStatement.setString(4, model.getPhone());
-	        preparedStatement.setString(5, model.getSex());
-	        preparedStatement.setDate(6, model.getBirth());
+	        preparedStatement.setString(4, model.getSex());
+	        preparedStatement.setDate(5, model.getBirth());
+	        preparedStatement.setString(6, model.getPhone());
 	        preparedStatement.setString(7, model.getAddress());
 	        preparedStatement.setString(8, model.getType());
 	        
@@ -109,7 +110,7 @@ public class UserModelService {
 			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
 			while(rs.next()) {
 				UserModel model = new UserModel(rs.getString(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8));
+						rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getString(8));
 				list.add(model);
 			}
 		} catch(Exception e) {

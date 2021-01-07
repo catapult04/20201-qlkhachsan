@@ -82,7 +82,7 @@ public class UserManageController extends Controller {
 			end = Date.valueOf("9999-1-1");
 		}
 		
-		data = service.search(search1.getText(), search2.getText(), search3.getText(), ((RadioButton)group.getSelectedToggle()).getText(), start, end, search4.getText(), comboBox.getValue());
+		data = service.search(search1.getText(), search2.getText(), ((RadioButton)group.getSelectedToggle()).getText(), start, end, search3.getText(), search4.getText(), comboBox.getValue());
 		table.setItems(data);
 	}
 	
@@ -92,6 +92,7 @@ public class UserManageController extends Controller {
 		search3.clear();
 		search4.clear();
 		radio1.setSelected(true);
+		comboBox.setValue("");
 		data = FXCollections.observableArrayList(service.getAll());
 		table.setItems(data);
 	}
@@ -114,8 +115,8 @@ public class UserManageController extends Controller {
     	c1.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getUsername()));
     	c2.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getName()));
     	c3.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getSex()));
-    	c4.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getPhone()));
-    	c5.setCellValueFactory(cell-> new SimpleStringProperty(String.valueOf(cell.getValue().getBirth())));
+    	c4.setCellValueFactory(cell-> new SimpleStringProperty(String.valueOf(cell.getValue().getBirth())));
+    	c5.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getPhone()));
     	c6.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getAddress()));
     	c7.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getType()));
     	c8.setCellValueFactory(new PropertyValueFactory<>("saveBtn"));
@@ -157,6 +158,10 @@ public class UserManageController extends Controller {
 	public void buildComboBox() {
 		ObservableList<String> ist = FXCollections.observableArrayList(UserModel.QUAN_LY, UserModel.LE_TAN, UserModel.THU_NGAN, UserModel.KE_TOAN);
 		comboBox.setItems(ist);
+		comboBox.setValue("");
+		comboBox.setOnAction(event -> {
+			onSearchBtn();
+		});
 	}
 	
 	@Override

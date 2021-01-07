@@ -6,13 +6,14 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+
+import controller.UserManageController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import model.UserModel;
 import model.UserModel;
 import service.UserModelService;
 import util.MyUtil;
@@ -45,9 +46,11 @@ public class AddUserFormController implements Initializable{
 	}
 	
 	public void onAdd() {
-		UserModel model = new UserModel(in1.getText(), in2.getText(), in3.getText(), in4.getValue(), Date.valueOf(in5.getValue()), in6.getText(), in7.getText(), in8.getValue());
+		UserModel model = new UserModel(in1.getText(), in2.getText(), in3.getText(), in4.getValue(), Date.valueOf(in5.getValue()), 
+				in6.getText(), in7.getText(), in8.getValue());
 		UserModelService service = new UserModelService();
 		if(service.addNew(model)==true) {
+			UserManageController.data.add(model);
 			MyUtil.success("Thêm nhân viên thành công");
 			in1.clear();
 			in2.clear();
