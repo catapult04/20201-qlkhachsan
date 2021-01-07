@@ -1,0 +1,74 @@
+.button2{
+	-fx-alignment: CENTER;
+	-fx-pref-height: 28;
+	-fx-font-size: 12px;
+	-fx-font-weight: BOLD;
+	-fx-font-famly: "Verdana";
+	-fx-text-fill: #247cbc;
+	-fx-background-color: #ffb700;
+	-fx-background-radius: 11 11 11 11;
+}
+
+.button2:hover {
+	-fx-background-color: #FF8C00;
+	-fx-cursor: hand;
+}
+.button1{
+	-fx-alignment: CENTER;
+	-fx-pref-height: 28;
+	-fx-font-size: 12px;
+	-fx-font-weight: BOLD;
+	-fx-font-famly: "Verdana";
+	-fx-text-fill: #247cbc;
+	-fx-background-color: #7CFC00;
+	-fx-background-radius: 11 11 11 11;
+}
+
+.button1:hover {
+	-fx-background-color: #FF8C00;
+	-fx-cursor: hand;
+}
+
+
+
+.buttontyperoom{
+	-fx-alignment: CENTER-LEFT;
+	-fx-padding: 0 0 0 30;
+	-fx-pref-height: 23;
+	-fx-font-size: 12px;
+	-fx-text-fill: #000000;
+	-fx-font-family: "Verdana";
+}
+.buttontyperoom:hover {
+	-fx-background-color: #999999;
+	-fx-cursor: hand;
+	-fx-text-fill: #FFFFFF;
+}
+
+
+.mylabel {
+	-fx-font-size: 15px;
+	-fx-font-family: "Arial";
+	-fx-text-fill: #565656;
+}
+
+.tab {
+	-fx-alignment: CENTER-LEFT;
+	-fx-padding: 0 0 0 37;
+	-fx-font-size: 16px;
+	-fx-font-family: "Verdana";
+	-fx-background-color: #666666;
+}
+.tab:hover {
+	-fx-background-color: #FF8C00;
+	-fx-background-radius: 15 0 0 15;
+	-fx-cursor: hand;
+}
+.choosingtab {
+	-fx-alignment: CENTER-LEFT;
+	-fx-padding: 0 0 0 37;
+	-fx-font-size: 16px;
+	-fx-font-family: "Verdana";
+	-fx-background-color: #FF8C00;
+	-fx-background-radius: 15 0 0 15;
+}

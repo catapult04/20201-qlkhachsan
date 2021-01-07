@@ -2,7 +2,7 @@ package model;
 
 public class RoomModel {
 	public static String DANG_O = "Đang ở", DA_DON = "Đã dọn", CHUA_DON="Chưa dọn", 
-			CHO_DEN="Chờ đến", KO_DEN="Ko đến", DANG_SUA="Đang sửa";
+			CHO_DEN="Chờ đến", DANG_SUA="Đang sửa";
 	
 	private String name;
 	private String typeRoom;

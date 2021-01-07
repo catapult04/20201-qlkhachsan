@@ -3,7 +3,5 @@
 /controller/
 /model/
 /service/
-/util/
-/view_ql/
-/view/
 /smallcontroller/
+/util/

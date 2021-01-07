@@ -7,6 +7,20 @@ import javafx.collections.ObservableList;
 import model.TypeRoomModel;
 
 public class TypeRoomModelService {
+	public ObservableList<String> getTypes(){
+		ObservableList<String> list = FXCollections.observableArrayList();
+		try {
+			String sql = "select id from typeroom";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ObservableList<TypeRoomModel> getAll(){
 		ObservableList<TypeRoomModel> list = FXCollections.observableArrayList();
 		try {

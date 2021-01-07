@@ -1,5 +1,4 @@
-
-.button1{
+.button2{
 	-fx-alignment: CENTER;
 	-fx-pref-height: 28;
 	-fx-font-size: 12px;
@@ -10,10 +9,27 @@
 	-fx-background-radius: 11 11 11 11;
 }
 
+.button2:hover {
+	-fx-background-color: #FF8C00;
+	-fx-cursor: hand;
+}
+.button1{
+	-fx-alignment: CENTER;
+	-fx-pref-height: 28;
+	-fx-font-size: 12px;
+	-fx-font-weight: BOLD;
+	-fx-font-famly: "Verdana";
+	-fx-text-fill: #247cbc;
+	-fx-background-color: #7CFC00;
+	-fx-background-radius: 11 11 11 11;
+}
+
 .button1:hover {
 	-fx-background-color: #FF8C00;
 	-fx-cursor: hand;
 }
+
+
 
 .buttontyperoom{
 	-fx-alignment: CENTER-LEFT;

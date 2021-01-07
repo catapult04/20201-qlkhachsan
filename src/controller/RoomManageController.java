@@ -35,7 +35,6 @@ public class RoomManageController extends Controller {
 	@FXML private RadioButton radio4;
 	@FXML private RadioButton radio5;
 	@FXML private RadioButton radio6;
-	@FXML private RadioButton radio7;
 	private ToggleGroup statusGroup = new ToggleGroup();
 	public void buildToggleGroup() {
 		radio1.setToggleGroup(statusGroup);
@@ -44,7 +43,6 @@ public class RoomManageController extends Controller {
 		radio4.setToggleGroup(statusGroup);
 		radio5.setToggleGroup(statusGroup);
 		radio6.setToggleGroup(statusGroup);
-		radio7.setToggleGroup(statusGroup);
 		statusGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() { 
 			@Override
             public void changed(ObservableValue<? extends Toggle> ob, Toggle o1, Toggle o2) 
@@ -55,10 +53,9 @@ public class RoomManageController extends Controller {
 	}
 	
 	
-	@FXML private JFXButton createRoomBtn;
-	public void onCreateRoomBtn() {
-		MyUtil util = new MyUtil();
-		util.popUp("FormThemPhong");
+	@FXML private JFXButton addRoomBtn;
+	public void onAddRoomBtn() {
+		MyUtil.popUp("FormThemPhong");
 	}
 	
 	
