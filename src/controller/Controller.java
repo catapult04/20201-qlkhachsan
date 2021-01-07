@@ -59,7 +59,7 @@ public class Controller implements Initializable {
 			} else if(event.getSource().equals(tab9)) {
 				url = "/" + MainQLKS.viewPkgName + "/ServiceManage.fxml";
 			} else if(event.getSource().equals(tab10)) {
-				url = "/" + MainQLKS.viewPkgName + "/StaffManage.fxml";
+				url = "/" + MainQLKS.viewPkgName + "/UserManage.fxml";
 			} else {
 				url = "/" + MainQLKS.viewPkgName + "/InfoManage.fxml";
 			}

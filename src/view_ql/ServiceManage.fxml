@@ -110,11 +110,10 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <Button fx:id="searchBtn" layoutX="61.0" layoutY="218.0" mnemonicParsing="false" onAction="#onSearchBtn" prefHeight="0.0" prefWidth="64.0" styleClass="button2" text="Tìm" />
-            <TextField fx:id="search4" layoutX="61.0" layoutY="125.0" onAction="#onSearchBtn" prefHeight="19.0" prefWidth="252.0" promptText="Nhập địa chỉ" />
-            <Label layoutX="61.0" layoutY="156.0" text="Đơn giá:   Từ:" />
-            <Label layoutX="219.0" layoutY="156.0" text="Đến: " />
-            <Button fx:id="resetBtn" layoutX="155.0" layoutY="218.0" mnemonicParsing="false" onAction="#onResetBtn" prefHeight="25.0" prefWidth="64.0" styleClass="button2" text="Reset" />
+            <Button fx:id="searchBtn" layoutX="61.0" layoutY="193.0" mnemonicParsing="false" onAction="#onSearchBtn" prefHeight="0.0" prefWidth="64.0" styleClass="button2" text="Tìm" />
+            <Label layoutX="61.0" layoutY="131.0" text="Đơn giá:   Từ:" />
+            <Label layoutX="219.0" layoutY="131.0" text="Đến: " />
+            <Button fx:id="resetBtn" layoutX="155.0" layoutY="193.0" mnemonicParsing="false" onAction="#onResetBtn" prefHeight="25.0" prefWidth="64.0" styleClass="button2" text="Reset" />
             <Button fx:id="addBtn" layoutX="474.0" layoutY="50.0" mnemonicParsing="false" onAction="#onAddBtn" prefHeight="31.0" prefWidth="150.0" styleClass="button1" text="Thêm dịch vụ mới" />
             <Text layoutX="473.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thao tác:">
                <font>
@@ -122,12 +121,12 @@
                </font>
             </Text>
             <Button fx:id="add2Btn" layoutX="473.0" layoutY="86.0" mnemonicParsing="false" onAction="#onAdd2Btn" prefHeight="31.0" prefWidth="152.0" styleClass="button1" text="Thêm nhiều từ file..." />
-            <TextField fx:id="search7" layoutX="61.0" layoutY="180.0" onAction="#onSearchBtn" prefHeight="19.0" prefWidth="252.0" promptText="Mô tả" />
+            <TextField fx:id="search6" layoutX="61.0" layoutY="155.0" onAction="#onSearchBtn" prefHeight="19.0" prefWidth="252.0" promptText="Mô tả" />
             <Button layoutX="473.0" layoutY="122.0" mnemonicParsing="false" onAction="#onXuatBtn" prefHeight="31.0" prefWidth="152.0" styleClass="button1" text="Xuất bảng dưới ra file" fx:id="xuatBtn" />
             <ComboBox fx:id="search3" layoutX="61.0" layoutY="99.0" prefHeight="25.0" prefWidth="252.0" promptText="Đơn vị tính" />
-            <TextField fx:id="search5" layoutX="141.0" layoutY="152.0" onAction="#onSearchBtn" prefHeight="25.0" prefWidth="64.0" />
-            <TextField fx:id="search6" layoutX="250.0" layoutY="152.0" onAction="#onSearchBtn" prefHeight="25.0" prefWidth="64.0" />
-            <TableView fx:id="table" layoutX="62.0" layoutY="268.0" prefHeight="366.0" prefWidth="882.0">
+            <TextField fx:id="search4" layoutX="141.0" layoutY="127.0" onAction="#onSearchBtn" prefHeight="25.0" prefWidth="64.0" />
+            <TextField fx:id="search5" layoutX="250.0" layoutY="127.0" onAction="#onSearchBtn" prefHeight="25.0" prefWidth="64.0" />
+            <TableView fx:id="table" layoutX="62.0" layoutY="258.0" prefHeight="376.0" prefWidth="882.0">
                <columns>
                   <TableColumn fx:id="c1" prefWidth="111.99993896484375" text="Mã dịch vụ" />
                   <TableColumn fx:id="c2" prefWidth="235.20004272460938" text="Tên dịch vụ" />
@@ -135,7 +134,7 @@
                   <TableColumn fx:id="c4" prefWidth="110.4000244140625" text="Đơn giá" />
                   <TableColumn fx:id="c5" minWidth="0.0" prefWidth="234.40008544921875" text="Mô tả" />
                   <TableColumn fx:id="c6" minWidth="0.0" prefWidth="36.0" />
-                  <TableColumn fx:id="c9" prefWidth="40.4000244140625" />
+                  <TableColumn fx:id="c7" prefWidth="40.4000244140625" />
                </columns>
             </TableView>
          </children>

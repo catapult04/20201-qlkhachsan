@@ -1,19 +1,28 @@
 package model;
 
 import java.sql.Date;
+import java.util.Optional;
 
-public class UserModel {
+import controller.UserManageController;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import service.UserModelService;
+import javafx.scene.control.Alert.AlertType;
+import util.MyUtil;
+
+public class UserModel  extends Model{
 	public static String QUAN_LY="Quản lý", KE_TOAN="Kế toán", LE_TAN="Lễ tân", THU_NGAN="Thu ngân";
 	
 	private String username;
 	private String password;
 	private String name;
 	private String phone;
+	private String sex;
 	private Date birth;
 	private String address;
 	private String type;
 	
-	public UserModel(String username, String password, String name, String phone, Date birth, String address,
+	public UserModel(String username, String password, String sex, String name, String phone, Date birth, String address,
 			String type) {
 		super();
 		this.username = username;
@@ -23,6 +32,46 @@ public class UserModel {
 		this.birth = birth;
 		this.address = address;
 		this.type = type;
+		oldId = username;
+		
+		UserModelService service = new UserModelService();
+		this.getSaveBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Lưu các thay đổi?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	if(service.update(this, this.oldId)==true) {
+	        		this.oldId = this.getUsername();
+	        		MyUtil.success("Cập nhật thành công");
+	        	} else {
+	        		MyUtil.fail("Có lỗi xảy ra");
+	        	}		
+	        } 
+		});
+		
+		this.getDelBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Xóa nhân viên?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	String id = this.getUsername();
+	        	UserManageController.data.remove(this);
+	        	service.delete(id);
+	        	MyUtil.success("Xóa thành công");
+	        } 
+		});
+	}
+	public void setField(int pos, String value) {
+		switch(pos) {
+			case 0: setUsername(value); break;
+			case 1: setPassword(value); break;
+			case 2: setName(value); break;
+			case 3: setPhone(value); break;
+			case 4: setSex(value); break;
+			case 5: setBirth(Date.valueOf(value)); break;
+			case 6: setAddress(value); break;
+			case 7: setType(value); break;
+		}
 	}
 
 	
@@ -82,4 +131,16 @@ public class UserModel {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	
+	
 }

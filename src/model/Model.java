@@ -6,12 +6,13 @@ import javafx.scene.paint.Color;
 
 public class Model {
 	public String oldId;
-	public static FontAwesomeIcon delIcon = new FontAwesomeIcon();
-	public static FontAwesomeIcon saveIcon = new FontAwesomeIcon();
+	public FontAwesomeIcon delIcon = new FontAwesomeIcon();
+	public FontAwesomeIcon saveIcon = new FontAwesomeIcon();
 	private JFXButton delBtn;
 	private JFXButton saveBtn;
 	
-	static {
+	
+	public Model() {
 		saveIcon.setSize("1.2em");
 		saveIcon.setGlyphName("CHECK");
 		saveIcon.setFill(Color.FORESTGREEN);
@@ -19,9 +20,8 @@ public class Model {
 		delIcon.setSize("1.2em");
 		delIcon.setGlyphName("TIMES");
 		delIcon.setFill(Color.RED);
-	}
-	
-	public Model() {
+		
+		
 		delBtn = new JFXButton();
 		saveBtn = new JFXButton();
 		
