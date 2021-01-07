@@ -1,9 +1,12 @@
 package controller;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,6 +28,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -38,6 +43,7 @@ import service.RoomModelService;
 import util.MyUtil;
 
 public class CustomerManageController extends Controller {
+	private CustomerModelService service = new CustomerModelService();
 	public static ObservableList<CustomerModel> data;
 	@FXML private TableView table;
 	@FXML private TableColumn<CustomerModel, String> c1,c2,c3,c4,c5,c6,c7,c8,c9;	
@@ -47,7 +53,6 @@ public class CustomerManageController extends Controller {
 	@FXML private TextField search3;
 	@FXML private TextField search4;
 	@FXML private TextField search5;
-	@FXML private TextField search6;
 	@FXML private DatePicker datePicker1;
 	@FXML private DatePicker datePicker2;
 	
@@ -55,6 +60,7 @@ public class CustomerManageController extends Controller {
 	@FXML private RadioButton radio2;
 	@FXML private RadioButton radio3;
 	@FXML private RadioButton radio4;
+	private ToggleGroup group = new ToggleGroup();
 	
 	@FXML private Button searchBtn;
 	@FXML private Button resetBtn;
@@ -63,11 +69,31 @@ public class CustomerManageController extends Controller {
 	@FXML private Button xuatBtn;
 	
 	public void onSearchBtn() {
+		Date start, end;
+		try {
+			start = Date.valueOf(datePicker1.getValue());
+		} catch(Exception e) {
+			start = Date.valueOf("0001-1-1");
+		}
+		try {
+			end = Date.valueOf(datePicker2.getValue());
+		} catch(Exception e) {
+			end = Date.valueOf("9999-1-1");
+		}
 		
+		data = service.search(search1.getText(), search2.getText(), ((RadioButton)group.getSelectedToggle()).getText(), start, end, search3.getText(), search4.getText(), search5.getText());
+		table.setItems(data);
 	}
 	
 	public void onResetBtn() {
-		
+		search1.clear();
+		search2.clear();
+		search3.clear();
+		search4.clear();
+		search5.clear();
+		radio1.setSelected(true);
+		data = FXCollections.observableArrayList(service.getAll());
+		table.setItems(data);
 	}
 	
 	public void onAddBtn() {
@@ -83,7 +109,6 @@ public class CustomerManageController extends Controller {
 	}
 	
 	public void buildTable() {
-		CustomerModelService service = new CustomerModelService();
 		data = FXCollections.observableArrayList(service.getAll());
     	
     	c1.setCellValueFactory(cell-> new SimpleStringProperty(cell.getValue().getCmnd()));
@@ -114,8 +139,24 @@ public class CustomerManageController extends Controller {
     	table.setEditable(true);
 	}
 	
+	public void buildRadio() {
+		radio1.setToggleGroup(group);
+		radio2.setToggleGroup(group);
+		radio3.setToggleGroup(group);
+		radio4.setToggleGroup(group);
+		radio1.setSelected(true);
+		group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() { 
+			@Override
+            public void changed(ObservableValue<? extends Toggle> ob, Toggle o1, Toggle o2) 
+            { 
+                onSearchBtn();
+            }
+        });
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		buildRadio();
 		buildTable();
 	}
 		

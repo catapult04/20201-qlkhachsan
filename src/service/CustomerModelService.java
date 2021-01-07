@@ -11,29 +11,38 @@ import java.sql.Statement;
 import model.CustomerModel;
 
 public class CustomerModelService {
-	public boolean search(String cmnd, String name, String sex, Date start, Date end, String phone, String address, String nationality) {
+	public ObservableList<CustomerModel> search(String cmnd, String name, String sex, Date start, Date end, String phone, String address, String nationality) {
+		ObservableList<CustomerModel> list = FXCollections.observableArrayList();
 		try {
-	        String query = "select * from customer where cmnd like ? and name like ? and sex like ? and birth>=? and birth<=? and phone= like and address like ? and nationality like ?";
+	        String query = "select * from customer where cmnd like ? and name like ? and sex like ? and birth>=? and birth<=? and phone like ? and address like ? and nationality like ?";
 	        PreparedStatement preparedStatement = ConnectionService.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 	        
-	        preparedStatement.setString(1, cmnd);
-	        preparedStatement.setString(2, name);
-	        if(sex.equals("Tất cả")) {
-	        	preparedStatement.setString(3, "");
+	        preparedStatement.setString(1, "%" + cmnd + "%");
+	        preparedStatement.setString(2, "%" + name + "%");
+        if(sex.equals("Tất cả")) {
+	        	preparedStatement.setString(3, "%");
+	        } else {
+	        	preparedStatement.setString(3, "%" + sex + "%");
 	        }
 	        preparedStatement.setDate(4, start);
 	        preparedStatement.setDate(5, end);
-	        preparedStatement.setString(6, phone);
-	        preparedStatement.setString(7, address);
-	        preparedStatement.setString(8, nationality);
+	        preparedStatement.setString(6, "%" + phone + "%");
+	        preparedStatement.setString(7, "%" + address + "%");
+	        preparedStatement.setString(8, "%" + nationality + "%");
 	        
-	        preparedStatement.execute();
+	        ResultSet rs = preparedStatement.executeQuery();
+	        CustomerModel model;
+	        while(rs.next()) {
+	        	model = new CustomerModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getString(6), rs.getString(7));
+	        	list.add(model);		
+	        }
+	        
 	        preparedStatement.close();
-	        return true;
+	      
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
+		return list;
     }
 	
 	public boolean update(CustomerModel model, String oldId) {
