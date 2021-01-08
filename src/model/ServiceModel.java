@@ -44,7 +44,7 @@ public class ServiceModel extends Model{
 		
 		this.getDelBtn().setOnAction(event -> {
 			Alert a = new Alert(AlertType.CONFIRMATION);
-			a.setHeaderText("Xóa khách hàng?");
+			a.setHeaderText("Xóa dịch vụ?");
 			Optional<ButtonType> option = a.showAndWait();
 	        if (option.get() == ButtonType.OK) {
 	        	String ID = this.getId();

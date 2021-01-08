@@ -25,11 +25,11 @@ public class Model {
 		delBtn = new JFXButton();
 		saveBtn = new JFXButton();
 		
-		delBtn.setStyle("-fx-background-color: #CCFF66");
+		delBtn.setStyle("-fx-background-color: #87CEEB");
 		delBtn.setGraphic(delIcon);
 		delBtn.autosize();
 		
-		saveBtn.setStyle("-fx-background-color: #CCFF66");
+		saveBtn.setStyle("-fx-background-color: #87CEEB");
 		saveBtn.setGraphic(saveIcon);
 		saveBtn.autosize();
 	}

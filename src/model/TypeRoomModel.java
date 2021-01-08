@@ -3,11 +3,15 @@ package model;
 import java.sql.Date;
 import java.util.Optional;
 
+import com.jfoenix.controls.JFXButton;
+
 import controller.CustomerManageController;
 import controller.TypeRoomManageController;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.paint.Color;
 import service.CustomerModelService;
 import service.TypeRoomModelService;
 import util.MyUtil;
@@ -30,6 +34,7 @@ public class TypeRoomModel extends Model{
 	private int monthPriceW;
 	
 	private int amount;
+	private JFXButton save2Btn;
 	
 	public TypeRoomModel(String id, int maxPeople, String description, int hourWeekdayPriceS,
 			int hourWeekendPriceS, int dayWeekdayPriceS, int dayWeekendPriceS, int monthPriceS, int hourWeekdayPriceW,
@@ -53,6 +58,28 @@ public class TypeRoomModel extends Model{
 		
 		TypeRoomModelService service = new TypeRoomModelService();
 		
+		FontAwesomeIcon save2Icon = new FontAwesomeIcon(); 
+		save2Icon.setSize("1.2em");
+		save2Icon.setGlyphName("CHECK");
+		save2Icon.setFill(Color.FORESTGREEN);
+		save2Btn = new JFXButton();
+		save2Btn.setStyle("-fx-background-color: #87CEEB");
+		save2Btn.setGraphic(save2Icon);
+		save2Btn.autosize();
+		this.save2Btn.setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Lưu các thay đổi?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	if(service.update(this, this.oldId)==true) {
+	        		this.oldId = this.getId();
+	        		MyUtil.success("Cập nhật thành công");
+	        	} else {
+	        		MyUtil.fail("Có lỗi xảy ra");
+	        	}		
+	        } 
+		});
+		
 		this.getSaveBtn().setOnAction(event -> {
 			Alert a = new Alert(AlertType.CONFIRMATION);
 			a.setHeaderText("Lưu các thay đổi?");
@@ -69,7 +96,7 @@ public class TypeRoomModel extends Model{
 		
 		this.getDelBtn().setOnAction(event -> {
 			Alert a = new Alert(AlertType.CONFIRMATION);
-			a.setHeaderText("Xóa khách hàng?");
+			a.setHeaderText("Xóa Loại Phòng?");
 			Optional<ButtonType> option = a.showAndWait();
 	        if (option.get() == ButtonType.OK) {
 	        	String idd = this.getId();
@@ -91,11 +118,11 @@ public class TypeRoomModel extends Model{
 			case 6: setDayWeekendPriceS(Integer.parseInt(value));break;
 			case 7: setMonthPriceS(Integer.parseInt(value));break;
 			
-			case 8: setHourWeekdayPriceS(Integer.parseInt(value));break;
-			case 9: setHourWeekendPriceS(Integer.parseInt(value));break;
-			case 10: setDayWeekdayPriceS(Integer.parseInt(value));break;
-			case 11: setDayWeekendPriceS(Integer.parseInt(value));break;
-			case 12: setMonthPriceS(Integer.parseInt(value));break;
+			case 8: setHourWeekdayPriceW(Integer.parseInt(value));break;
+			case 9: setHourWeekendPriceW(Integer.parseInt(value));break;
+			case 10: setDayWeekdayPriceW(Integer.parseInt(value));break;
+			case 11: setDayWeekendPriceW(Integer.parseInt(value));break;
+			case 12: setMonthPriceW(Integer.parseInt(value));break;
 		}
 	}
 	
@@ -185,4 +212,11 @@ public class TypeRoomModel extends Model{
 	public void setMonthPriceW(int monthPriceW) {
 		this.monthPriceW = monthPriceW;
 	}
+	public JFXButton getSave2Btn() {
+		return save2Btn;
+	}
+	public void setSave2Btn(JFXButton save2Btn) {
+		this.save2Btn = save2Btn;
+	}
+	
 }

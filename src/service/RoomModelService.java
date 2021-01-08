@@ -9,8 +9,9 @@ import model.RoomModel;
 public class RoomModelService {
 	public int countId(String id) {
 		try {
-			String sql = "select count(name) from room where typeroom-id='" + id + "'";
+			String sql = "select count(name) from room where typeroomId='" + id + "'";
 			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			rs.next(); 
 			return rs.getInt(1);
 		}catch(Exception e) {
 			e.printStackTrace();
