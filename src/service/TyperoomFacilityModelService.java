@@ -1,8 +1,7 @@
 package service;
 
-import java.sql.ResultSet;
-
 import javafx.collections.FXCollections;
+import java.sql.ResultSet;
 import javafx.collections.ObservableList;
 import model.TyperoomFacilityModel;
 

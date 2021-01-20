@@ -147,7 +147,7 @@
                         <TableColumn prefWidth="130.4000244140625" text="Theo ngày">
                            <columns>
                               <TableColumn fx:id="d43" prefWidth="70.4000244140625" text="Đầu tuần" />
-                              <TableColumn fx:id="d8" prefWidth="72.800048828125" text="Cuối tuần" />
+                              <TableColumn fx:id="d44" prefWidth="72.800048828125" text="Cuối tuần" />
                            </columns>
                         </TableColumn>
                         <TableColumn fx:id="d45" prefWidth="74.4000244140625" text="Theo tháng" />

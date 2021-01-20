@@ -1,34 +1,19 @@
 package controller;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.net.URL;
 import java.util.ResourceBundle;
-import com.jfoenix.controls.JFXButton;
-import application.MainQLKS;
-import component.RoomComponent;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import model.RoomModel;
-import model.ServiceModel;
 import model.TypeRoomModel;
-import service.RoomModelService;
-import service.ServiceModelService;
 import service.TypeRoomModelService;
 import util.MyUtil;
 
@@ -103,21 +88,22 @@ public class TypeRoomManageController extends Controller {
     	table2.setEditable(true);
 	}
 	
-	@FXML private JFXButton addBtn;
-	@FXML private JFXButton xuatBtn;
-	@FXML private JFXButton resetBtn;
+	@FXML private Button addBtn;
+	@FXML private Button xuatBtn;
+	@FXML private Button resetBtn;
+	
 	public void onAddBtn() {
-		
+		MyUtil.popUp("AddTypeRoomForm");
 	}
 	
 	public void onXuatBtn() {
 		
-		
 	}
 	
 	public void onResetBtn() {
-		
-		
+		data = FXCollections.observableArrayList(service.getAll());
+		table1.setItems(data);
+		table2.setItems(data);
 	}
 	
 	@Override

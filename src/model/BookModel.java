@@ -1,12 +1,26 @@
 package model;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.sql.Date;
+import java.util.Optional;
 
-public class BookModel {
+import com.jfoenix.controls.JFXButton;
+
+import controller.BookManageController;
+import controller.CustomerManageController;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import service.BookModelService;
+import javafx.scene.control.Alert.AlertType;
+import util.MyUtil;
+
+public class BookModel extends Model{
 	private String id;
 	private String customerCmnd;
-	private int peopleQuantity;
+	private int peopleAmount;
 	private String listRoom;
 	private int deposit;
 	private Date dateBook;
@@ -17,13 +31,16 @@ public class BookModel {
 	private int roomCost;
 	private int serviceCost;
 	private Timestamp dateBill;
-	public BookModel(String id, String customerCmnd, int peopleQuantity, String listRoom, int deposit, Date dateBook,
+	
+	private JFXButton checkinBtn;
+	
+	public BookModel(String id, String customerCmnd, int peopleAmount, String listRoom, int deposit, Date dateBook,
 			Timestamp dateStart, Timestamp dateEnd, String byHourDayMonth, int roomCost, int serviceCost,
 			Timestamp dateBill) {
 		super();
 		this.id = id;
 		this.customerCmnd = customerCmnd;
-		this.peopleQuantity = peopleQuantity;
+		this.peopleAmount = peopleAmount;
 		this.listRoom = listRoom;
 		this.deposit = deposit;
 		this.dateBook = dateBook;
@@ -33,7 +50,70 @@ public class BookModel {
 		this.roomCost = roomCost;
 		this.serviceCost = serviceCost;
 		this.dateBill = dateBill;
+		oldId = id;
+		
+		BookModelService service = new BookModelService();
+		
+		checkinBtn = new JFXButton();
+		checkinBtn.setStyle("-fx-background-color: #ffb700");
+		checkinBtn.setText(" NOW! ");
+		checkinBtn.autosize();
+		
+		this.getSaveBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Lưu các thay đổi?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	if(service.update(this, this.oldId)==true) {
+	        		this.oldId = this.getId();
+	        		MyUtil.success("Cập nhật thành công");
+	        	} else {
+	        		MyUtil.fail("Có lỗi xảy ra");
+	        	}		
+	        } 
+		});
+		
+		this.getDelBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Xóa đơn đặt?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	String idd = this.getId();
+	        	BookManageController.data.remove(this);
+	        	service.delete(idd);
+	        	MyUtil.success("Xóa thành công");
+	        } 
+		});
+		
+		this.getCheckinBtn().setOnAction(event -> {
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setHeaderText("Checkin bây giờ?");
+			Optional<ButtonType> option = a.showAndWait();
+	        if (option.get() == ButtonType.OK) {
+	        	LocalTime timeNow = LocalTime.now();
+	        	Timestamp dtStart = Timestamp.valueOf(LocalDateTime.of(LocalDate.now(), LocalTime.of(timeNow.getHour(), timeNow.getMinute())));
+	        	this.setDateStart(dtStart);
+	        	service.checkIn(this.getId(), dtStart);
+	        	BookManageController.nowObj.onResetBtn();
+	        	MyUtil.success("Checkin thành công");
+	        }
+		});
 	}
+	public void setField(int pos, String value) {
+		switch(pos) {
+			case 1: setId(value); break;
+			case 2: setCustomerCmnd(value); break;
+			case 3: setPeopleAmount(Integer.parseInt(value)); break;
+			case 4: setListRoom(value); break;
+			case 5: setDeposit(Integer.parseInt(value)); break;
+			case 6: setDateBook(Date.valueOf(value)); break;
+			case 7: setDateStart(Timestamp.valueOf(value)); break;
+			case 8: setDateEnd(Timestamp.valueOf(value)); break;
+			case 9: setByHourDayMonth(value); break;
+			
+		}
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -46,11 +126,11 @@ public class BookModel {
 	public void setCustomerCmnd(String customerCmnd) {
 		this.customerCmnd = customerCmnd;
 	}
-	public int getPeopleQuantity() {
-		return peopleQuantity;
+	public int getPeopleAmount() {
+		return peopleAmount;
 	}
-	public void setPeopleQuantity(int peopleQuantity) {
-		this.peopleQuantity = peopleQuantity;
+	public void setPeopleAmount(int peopleAmount) {
+		this.peopleAmount = peopleAmount;
 	}
 	public String getListRoom() {
 		return listRoom;
@@ -105,5 +185,11 @@ public class BookModel {
 	}
 	public void setDateBill(Timestamp dateBill) {
 		this.dateBill = dateBill;
+	}
+	public JFXButton getCheckinBtn() {
+		return checkinBtn;
+	}
+	public void setCheckinBtn(JFXButton checkinBtn) {
+		this.checkinBtn = checkinBtn;
 	}
 }

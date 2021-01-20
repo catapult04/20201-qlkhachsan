@@ -11,6 +11,32 @@ import java.sql.Statement;
 import model.CustomerModel;
 
 public class CustomerModelService {
+	public ObservableList<String> getAllCmnd() {
+		ObservableList<String> list = FXCollections.observableArrayList(); 
+		try {
+			String sql = "select cmnd from customer";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public String getNameByCmnd(String cmnd) {
+		try {
+			String sql = "select name from customer where cmnd='" + cmnd +"'";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			rs.next();
+			return rs.getString(1);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public ObservableList<CustomerModel> search(String cmnd, String name, String sex, Date start, Date end, String phone, String address, String nationality) {
 		ObservableList<CustomerModel> list = FXCollections.observableArrayList();
 		try {

@@ -3,10 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1306.0" stylesheets="@../view/style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CheckoutManageController">
    <children>
@@ -100,6 +105,29 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="301.0" layoutY="42.0" prefHeight="654.0" prefWidth="1006.0" />
+      <Pane layoutX="301.0" layoutY="42.0" prefHeight="654.0" prefWidth="1006.0">
+         <children>
+            <Button fx:id="checkoutBtn" layoutX="385.0" layoutY="53.0" mnemonicParsing="false" onAction="#onCheckoutBtn" prefHeight="25.0" prefWidth="74.0" styleClass="button2" text="Check-out" />
+            <Label layoutX="28.0" layoutY="57.0" text="Chọn mã đơn đặt phòng:" />
+            <ComboBox fx:id="comboBox" layoutX="208.0" layoutY="53.0" prefHeight="25.0" prefWidth="169.0" />
+            <Text layoutX="28.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thực hiện check out:">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <TableView fx:id="table" layoutX="6.0" layoutY="197.0" prefHeight="434.0" prefWidth="995.0">
+               <columns>
+                  <TableColumn fx:id="c1" prefWidth="100.79998779296875" text="Mã đơn" />
+                  <TableColumn fx:id="c2" prefWidth="123.199951171875" text="CMND khách hàng" />
+                  <TableColumn fx:id="c3" prefWidth="216.79998779296875" text="DS phòng thuê" />
+                  <TableColumn fx:id="c4" minWidth="0.0" prefWidth="124.79998779296875" text="Ngày đặt" />
+                  <TableColumn fx:id="c5" prefWidth="182.4000244140625" text="Time checkin" />
+                  <TableColumn fx:id="c6" prefWidth="156.800048828125" text="Time checkout" />
+                  <TableColumn fx:id="c7" minWidth="5.5999755859375" prefWidth="39.2000732421875" />
+                  <TableColumn fx:id="c8" minWidth="5.5999755859375" prefWidth="45.60009765625" />
+               </columns>
+            </TableView>
+            <Button fx:id="resetBtn" layoutX="14.0" layoutY="160.0" mnemonicParsing="false" onAction="#onResetBtn" prefHeight="25.0" prefWidth="105.0" styleClass="button2" text="Reset" />
+         </children></Pane>
    </children>
 </AnchorPane>

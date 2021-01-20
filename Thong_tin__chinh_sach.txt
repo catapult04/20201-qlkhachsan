@@ -9,7 +9,7 @@ THONG TIN
 
 CHINH SACH 
 - Quá 10p mà khách k đến checkin thì trạng thái phòng chuyển thành đã dọn
-- Khach doan: giam 8% gia moi phong (tru cac phong loai Supervip) voi khach doan >=10 nguoi
+- Khach doan: Đoàn là >=10 người, giam 8% gia phong (tru cac phong loai Supervip)
 - tre em <= 5 tuoi, nguoi gia >=80 tuoi: 
 - khách đặt mà không đến: cho khách khác thuê và không trả lại tiền cọc, vì gây ảnh hưởng đến hoạt động kinh doanh của khách sạn
 - Đầu tuần là t2 đến t6, cuối tuần là t7 cn

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="681.0" stylesheets="@style3.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smallcontroller.AddBookFormController">
+   <children>
+      <Pane fx:id="mmm" prefHeight="42.0" prefWidth="681.0" style="-fx-background-color: #247cbc">
+         <children>
+            <Label layoutX="266.0" layoutY="11.0" text="Thêm đơn đặt phòng" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <JFXButton fx:id="add" layoutX="209.0" layoutY="634.0" onAction="#onAdd" prefWidth="81.0" styleClass="button1" text="Thêm" />
+      <JFXButton fx:id="cancel" layoutX="372.0" layoutY="634.0" onAction="#onCancel" prefWidth="82.0" styleClass="button1" text="Cancel" />
+      <Label layoutX="14.0" layoutY="58.0" styleClass="mylabel" text="Mã đơn đặt:" />
+      <TextField fx:id="ma" layoutX="129.0" layoutY="53.0" onAction="#onAdd" prefHeight="26.0" prefWidth="153.0" />
+      <Label layoutX="309.0" layoutY="58.0" styleClass="mylabel" text="CMND khách: " />
+      <Label fx:id="label" layoutX="424.0" layoutY="80.0" prefHeight="18.0" prefWidth="244.0" />
+      <Label layoutX="14.0" layoutY="107.0" styleClass="mylabel" text="Số người:" />
+      <TextField fx:id="songuoi" layoutX="129.0" layoutY="102.0" onAction="#onAdd" prefHeight="26.0" prefWidth="153.0" />
+      <Label layoutX="14.0" layoutY="147.0" styleClass="mylabel" text="Danh sách phòng:" />
+      <Label layoutX="46.0" layoutY="167.0" styleClass="mylabel" text="- Điền thủ công:" />
+      <TextField fx:id="dsphong" layoutX="63.0" layoutY="187.0" onAction="#onAdd" prefHeight="26.0" prefWidth="362.0" />
+      <Label layoutX="42.0" layoutY="222.0" styleClass="mylabel" text="- Hoặc tìm tự động: Nhập số phòng cần thuê rồi nhấn tìm:" />
+      <TableView fx:id="table" layoutX="63.0" layoutY="242.0" prefHeight="212.0" prefWidth="538.0">
+        <columns>
+          <TableColumn fx:id="c1" prefWidth="60.000003814697266" text="Mã loại" />
+          <TableColumn fx:id="c2" prefWidth="388.7999725341797" text="Danh sách phòng còn trống" />
+            <TableColumn fx:id="c3" prefWidth="88.00003662109373" text="Số lượng cần:" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="search" layoutX="612.0" layoutY="428.0" onAction="#onSearch" prefWidth="54.0" styleClass="button2" text="Tìm!" />
+      <Label layoutX="14.0" layoutY="473.0" styleClass="mylabel" text="Ngày đặt:" />
+      <DatePicker fx:id="datebook" layoutX="133.0" layoutY="469.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="14.0" layoutY="505.0" styleClass="mylabel" text="Hẹn đến vào:" />
+      <DatePicker fx:id="datestart" layoutX="304.0" layoutY="501.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="14.0" layoutY="533.0" styleClass="mylabel" text="Sẽ rời đi vào:" />
+      <DatePicker fx:id="dateend" layoutX="304.0" layoutY="529.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="309.0" layoutY="107.0" styleClass="mylabel" text="Tiền cọc:" />
+      <TextField fx:id="tiencoc" layoutX="424.0" layoutY="102.0" onAction="#onAdd" prefHeight="26.0" prefWidth="153.0" />
+      <Label layoutX="18.0" layoutY="569.0" styleClass="mylabel" text="Thuê theo:" />
+      <ComboBox fx:id="thuetheo" layoutX="133.0" layoutY="566.0" prefWidth="150.0" />
+      <JFXButton fx:id="reset" layoutX="612.0" layoutY="396.0" onAction="#onReset" prefWidth="54.0" styleClass="button2" text="Reset" />
+      <ComboBox fx:id="cmnd" layoutX="424.0" layoutY="54.0" prefHeight="26.0" prefWidth="154.0" />
+      <TextField fx:id="timestart" layoutX="132.0" layoutY="500.0" onAction="#onAdd" prefHeight="26.0" prefWidth="153.0" promptText="hh:mm" />
+      <TextField fx:id="timeend" layoutX="131.0" layoutY="528.0" onAction="#onAdd" prefHeight="26.0" prefWidth="153.0" promptText="hh:mm" />
+      <Label layoutX="468.0" layoutY="534.0" styleClass="mylabel" text="(Can be null)" />
+   </children>
+</AnchorPane>

@@ -1,8 +1,8 @@
 package application;
 
-import java.sql.SQLException;
-
 import javafx.application.Application;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import service.ConnectionService;
@@ -24,6 +24,7 @@ public class MainQLKS extends Application {
 	public static Stage stage;
 	public static String username;
 	public static String viewPkgName;
+	public static LocalDate today = LocalDate.now();
 	
 	@Override
 	public void start(Stage primaryStage) {

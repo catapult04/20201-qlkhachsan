@@ -4,6 +4,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -100,6 +101,13 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane layoutX="301.0" layoutY="42.0" prefHeight="654.0" prefWidth="1006.0" />
+      <Pane layoutX="301.0" layoutY="42.0" prefHeight="654.0" prefWidth="1006.0">
+         <children>
+            <TextArea layoutX="29.0" layoutY="30.0" prefHeight="568.0" prefWidth="949.0" text="                                                                                                    THÔNG TIN KHÁCH SẠN&#10;&#10;- Tên khách sạn: Khách sạn Phượng Hoàng 1&#10;- Mã số thuế: xxxxxxxxxxxxxxxxxxxxx&#10;- Địa chỉ: Số 1 Xuân Thủy, Cầu Giấy, Hà Nội&#10;- Thông tin liên hệ: 6677 1508 hoặc www.ksphuonghoang1.com&#10;- Ngày thành lập: 3-2-2010&#10;- Chủ sở hữu: Nguyễn Viết Bình&#10;- Giấy phép sử dụng đất đã được nhà nước cấp: xxxxxxxxxxxx&#10;- Giấy phép kinh doanh được Bộ Công thương cấp ngày 7-3-2010: xxxxxxxxxxxxxxx&#10;&#10;&#10;&#10;                                                                                                    VỀ CHÍNH SÁCH:&#10;&#10;- Áp dụng giá: ngày đầu tuần là thứ 2 - thứ 6, cuối tuần là thứ 7 và chủ nhật&#10;- Khách đoàn: là khách đi theo đoàn &gt;=10 người, giảm 8% giá phòng (trừ các phòng loại S trở lên)&#10;- Quá 10 phút mà khách đã đặt không đến checkin thì trạng thái phòng chuyển thành đã dọn và được cho người khác thuê nếu có; &#10;  tiền cọc cũng không được trả lại, coi nhưu bồi thường hoạt động kinh doanh cho khách sạn&#10;- Không áp dụng giảm giá đối với trẻ em và người già">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+         </children></Pane>
    </children>
 </AnchorPane>

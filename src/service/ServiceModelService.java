@@ -8,6 +8,33 @@ import javafx.collections.ObservableList;
 import model.ServiceModel;
 
 public class ServiceModelService {
+	public String getNameById(String idd) {
+		try {
+			String sql = "select name from service where id='" + idd + "'";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			while(rs.next()) {
+				return rs.getString(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ObservableList<String> getAllId(){
+		ObservableList<String> list = FXCollections.observableArrayList();
+		try {
+			String sql = "select id from service";
+			ResultSet rs = ConnectionService.conn.createStatement().executeQuery(sql);
+			while(rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ObservableList<ServiceModel> search(String id, String name, String unit, int start, int end, String des) {
 		ObservableList<ServiceModel> list = FXCollections.observableArrayList();
 		try {
